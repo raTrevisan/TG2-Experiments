@@ -1,0 +1,8 @@
+[2024-09-16T20:27:57Z INFO  dt_instance] Current Twin: dab-twin-2
+[2024-09-16T20:27:57Z INFO  dt_instance] Replica Name twin-dab-stateful-2
+[2024-09-16T20:27:57Z INFO  dt_instance] Sleeping for 50
+[2024-09-16T20:28:47Z INFO  dt_instance] Connecting to broker at emqx.dtwins:1883
+[2024-09-16T20:28:47Z INFO  dt_instance] Loggin info each 50 messages
+[2024-09-16T20:28:47Z INFO  dt_instance] Set max packet size to 60000 KB.
+[2024-09-16T20:28:47Z INFO  dt_instance] Refreshing topics for twin - Listen to dab-2/#
+[2024-09-16T20:28:47Z INFO  dt_instance] SubAck { pkid: 1, return_codes: [Success(AtLeastOnce)] }
