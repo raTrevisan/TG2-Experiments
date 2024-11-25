@@ -12,8 +12,8 @@ def read_history_file(filename):
 
 def analyze_performance():
     # Read the data
-    tcp_times = read_history_file('./data/tcp-big-tcp_hf.log')
-    quic_times = read_history_file('./data/quic-big-quic_hf.log')
+    tcp_times = read_history_file('./data/tcp_hf.log')
+    quic_times = read_history_file('./data/quic_hf.log')
 
     # Calculate total time for each protocol
     tcp_total = tcp_times[-1] - tcp_times[0]

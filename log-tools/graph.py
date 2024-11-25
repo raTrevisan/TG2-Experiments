@@ -26,8 +26,8 @@ def read_history_file(filename):
 
 def create_graph():
     # Read only the relevant data files
-    tcp_times = read_history_file('./data/tcp-big-tcp_hf.log')
-    quic_times = read_history_file('./data/quic-big-quic_hf.log')
+    tcp_times = read_history_file('./data/tcp_hf.log')
+    quic_times = read_history_file('./data/quic_hf.log')
 
     # Create message indices (x-axis)
     tcp_indices = np.arange(len(tcp_times))

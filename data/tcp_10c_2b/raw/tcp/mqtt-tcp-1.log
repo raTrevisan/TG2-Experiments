@@ -4591,7 +4591,7 @@ INFO:Message received on topic: test/1 with payload size: 91 at 2024-11-25 05:07
 INFO:Message received on topic: test/1 with payload size: 91 at 2024-11-25 05:07:45.965961 sent 2024-11-25 05:07:45.964734
 INFO:Message received on topic: test/1 with payload size: 91 at 2024-11-25 05:07:45.977043 sent 2024-11-25 05:07:45.975907
 INFO:Message received on topic: test/1 with payload size: 91 at 2024-11-25 05:07:45.988408 sent 2024-11-25 05:07:45.987082
-INFO:Message received on topic: test/1 with payload size: 91 at 2024-11-25 05:07:46 sent 2024-11-25 05:07:45.998552
+INFO:Message received on topic: test/1 with payload size: 91 at 2024-11-25 05:07:46.000000 sent 2024-11-25 05:07:45.998552
 INFO:Message received on topic: test/1 with payload size: 91 at 2024-11-25 05:07:46.011338 sent 2024-11-25 05:07:46.010087
 INFO:Message received on topic: test/1 with payload size: 91 at 2024-11-25 05:07:46.022676 sent 2024-11-25 05:07:46.021416
 INFO:Message received on topic: test/1 with payload size: 91 at 2024-11-25 05:07:46.034214 sent 2024-11-25 05:07:46.032819
