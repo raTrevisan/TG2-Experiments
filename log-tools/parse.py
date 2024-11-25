@@ -95,51 +95,44 @@ def check_empty(curr):
 
 
 def parse():
-    path = "./data/tcp-test/raw/"
-    for folder in ["quic", "tcp"]:
-        print(f"Processing {folder} files...")
+    protocols = {"quic", "tcp"}
+    for protocol in protocols:
+        print(f"Processing {protocol} files...")
         
         try:
-            # Open history file for writing
-            with open(f"{path}/../{folder}_hf.log", 'w') as hf:
-                # Get reference time from first file
+            # Write history file to main data directory
+            with open(f"./data/" + sys.argv[1] + "-" + protocol + "_hf.log", 'w') as hf:
                 try:
-                    ref_time = get_ref_time(path, folder)
+                    # Still read from test-specific directories
+                    test_dir = f"./data/" + sys.argv[1] + "/raw/"
+                    ref_time = get_ref_time(test_dir, protocol)
                 except Exception as e:
-                    print(f"Skipping {folder}: {str(e)}")
+                    print(f"Skipping {protocol}: {str(e)}")
                     continue
                 
-                # Open and process all files in folder
-                f_lists = listdir(path + folder)
-                files = [open(path + folder + "/" + x, 'r') for x in f_lists]
+                f_lists = listdir(test_dir + protocol)
+                files = [open(test_dir + protocol + "/" + x, 'r') for x in f_lists]
                 curr = [None] * len(files)
 
-                # Initialize with first message from each file
                 for f in range(len(files)):
                     curr[f] = get_next_message(files[f])
                 
-                # Check if all files are empty
                 if all(msg == "" for msg in curr):
-                    print(f"Skipping {folder}: All files are empty")
-                    # Close all files before continuing
+                    print(f"Skipping {protocol}: All files are empty")
                     for f in files:
                         f.close()
                     continue
 
-                # Process messages
                 while not check_empty(curr):
                     curr_time = compare_time(curr, ref_time)
-                    # Write time difference to history file
                     hf.write(f"{curr_time[0]}\n")
-                    # Get next message from the file we just processed
                     curr[curr_time[1]] = get_next_message(files[curr_time[1]])
 
-                # Close all input files
                 for f in files:
                     f.close()
                     
         except Exception as e:
-            print(f"Error processing {folder}: {str(e)}")
+            print(f"Error processing {protocol}: {str(e)}")
             continue
 
 

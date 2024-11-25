@@ -1,3 +1,0 @@
-INFO:Starting Version 1.0.2
-DEBUG:Using selector: EpollSelector
-INFO:Connecting to cluster at: mqtt-tcp://10.0.2.147:1883
