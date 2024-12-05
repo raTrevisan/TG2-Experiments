@@ -2,7 +2,7 @@
 echo "Scaling Broker..."
 kubectl scale --replicas=$3 statefulset/emqx -n dtwins
 
-sleep 1
+sleep 60
 
 #kubectl scale --replicas=0 deployments/cluster-manager -n dtwins
 #sleep 60
