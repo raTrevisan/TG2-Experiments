@@ -1,0 +1,6 @@
+INFO:Starting Version 1.0.5
+DEBUG:Using selector: EpollSelector
+INFO:Connecting to cluster at: mqtt-quic://emqx-headless.dtwins:14567 using QUIC
+INFO:Subscribed to topic: type-3/48
+INFO:Logging each: 1
+INFO:Unhandled packet type received
