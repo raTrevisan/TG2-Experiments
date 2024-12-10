@@ -2,7 +2,6 @@
 cd ./data
 mkdir $1
 cd $1
-mkdir quic
 for type in 1 2 3
 do
     mkdir type-${type}
@@ -13,3 +12,4 @@ do
     done
     cd ..
 done
+kubectl logs -n dtwins cluster-manager-0 > cluster-manager.log

@@ -4,7 +4,7 @@ kubectl scale --replicas=$3 statefulset/emqx -n dtwins
 
 sleep 60
 
-#kubectl scale --replicas=0 deployments/cluster-manager -n dtwins
+kubectl scale --replicas=1 statefulset/cluster-manager -n dtwins
 #sleep 60
 
 #!/bin/bash

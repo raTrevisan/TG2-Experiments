@@ -33,7 +33,7 @@ def parse_log_file(filename):
 
 def create_histograms():
     # Base directory for the logs
-    base_dir = './data/quic-10-1'
+    base_dir = './data/quic-50-1'
     
     # Create a histogram for each type
     for type_num in [1, 2, 3]:
@@ -101,7 +101,7 @@ def create_histograms():
         # Save the plot
         output_dir = './data/graphs'
         os.makedirs(output_dir, exist_ok=True)
-        plt.savefig(os.path.join(output_dir, f'quic_10_clients_type_{type_num}_histogram.png'))
+        plt.savefig(os.path.join(output_dir, f'quic_50_clients_type_{type_num}_histogram.png'))
         plt.close()
 
 if __name__ == "__main__":
