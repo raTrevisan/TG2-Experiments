@@ -15,3 +15,4 @@ kubectl scale --replicas=0 statefulset/mqtt-tcp-pub -n dtwins
 
 kubectl scale --replicas=0 statefulset/mqtt-quic-sub -n dtwins
 kubectl scale --replicas=0 statefulset/mqtt-quic-pub -n dtwins
+kubectl scale --replicas=0 statefulset/cluster-manager -n dtwins
