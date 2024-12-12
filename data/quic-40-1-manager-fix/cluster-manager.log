@@ -1,0 +1,170 @@
+starting with cluster address: emqx.dtwins:18083
+cluster user set to: my-app and cluster password set to: AAA4A275-BEEC-4AF8-B70B-DAAC0341F8EB
+kubernetes api address set to: someaddress:6443
+max queue set to: 1000 and max inflight set to: 32
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+Warning: Received empty or invalid response - metrics: False, nodes: True
+date: 2024-12-12 16:07:19.973014 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+date: 2024-12-12 16:07:30.000695 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+date: 2024-12-12 16:07:40.038379 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+date: 2024-12-12 16:07:50.079316 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+date: 2024-12-12 16:08:00.126024 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+date: 2024-12-12 16:08:10.186713 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+date: 2024-12-12 16:08:20.260319 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=1, avg=1.00, max=32
+date: 2024-12-12 16:08:30.297900 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=3, avg=3.00, max=32
+date: 2024-12-12 16:08:40.339896 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=3, avg=3.00, max=32
+date: 2024-12-12 16:08:50.391671 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=1, avg=1.00, max=32
+date: 2024-12-12 16:09:00.439717 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=3, avg=3.00, max=32
+date: 2024-12-12 16:09:10.531725 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=5, avg=5.00, max=32
+date: 2024-12-12 16:09:20.822917 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=6, avg=6.00, max=32
+date: 2024-12-12 16:09:31.426969 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=15, avg=15.00, max=32
+date: 2024-12-12 16:09:42.020967 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=23, avg=23.00, max=32
+date: 2024-12-12 16:09:52.817159 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=45, avg=45.00, max=32
+date: 2024-12-12 16:10:06.694139 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=57, avg=57.00, max=32
+date: 2024-12-12 16:10:20.487162 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=52, avg=52.00, max=32
+date: 2024-12-12 16:10:31.414418 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=89, avg=89.00, max=32
+date: 2024-12-12 16:10:42.701618 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=78, avg=78.00, max=32
+date: 2024-12-12 16:10:54.114865 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=82, avg=82.00, max=32
+date: 2024-12-12 16:11:05.232888 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=76, avg=76.00, max=32
+date: 2024-12-12 16:11:16.674412 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=93, avg=93.00, max=32
+date: 2024-12-12 16:11:31.183388 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=93, avg=93.00, max=32
+date: 2024-12-12 16:11:45.919818 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=58, avg=58.00, max=32
+date: 2024-12-12 16:12:00.999212 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=69, avg=69.00, max=32
+date: 2024-12-12 16:12:15.271670 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=91, avg=91.00, max=32
+date: 2024-12-12 16:12:27.635161 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=74, avg=74.00, max=32
+date: 2024-12-12 16:12:39.612155 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=84, avg=84.00, max=32
+date: 2024-12-12 16:12:51.573942 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=74, avg=74.00, max=32
+date: 2024-12-12 16:13:04.111699 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=77, avg=77.00, max=32
+date: 2024-12-12 16:13:19.194425 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=77, avg=77.00, max=32
+date: 2024-12-12 16:13:34.589365 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=88, avg=88.00, max=32
+date: 2024-12-12 16:13:49.876674 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=92, avg=92.00, max=32
+date: 2024-12-12 16:14:05.391058 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=86, avg=86.00, max=32
+date: 2024-12-12 16:14:19.900096 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=75, avg=75.00, max=32
+date: 2024-12-12 16:14:32.186252 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=92, avg=92.00, max=32
+date: 2024-12-12 16:14:45.313201 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=100, avg=100.00, max=32
+date: 2024-12-12 16:14:58.211446 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=84, avg=84.00, max=32
+date: 2024-12-12 16:15:11.712959 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=95, avg=95.00, max=32
+date: 2024-12-12 16:15:28.304068 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=57, avg=57.00, max=32
+date: 2024-12-12 16:15:44.503616 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=92, avg=92.00, max=32
+date: 2024-12-12 16:16:01.612034 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=69, avg=69.00, max=32
+date: 2024-12-12 16:16:18.315720 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=80, avg=80.00, max=32
+date: 2024-12-12 16:16:34.182929 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=97, avg=97.00, max=32
+date: 2024-12-12 16:16:47.803531 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=85, avg=85.00, max=32
+date: 2024-12-12 16:17:00.490346 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=68, avg=68.00, max=32
+date: 2024-12-12 16:17:13.184205 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=80, avg=80.00, max=32
+date: 2024-12-12 16:17:25.921063 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=79, avg=79.00, max=32
+date: 2024-12-12 16:17:39.003295 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=57, avg=57.00, max=32
+date: 2024-12-12 16:17:55.021843 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=40, avg=40.00, max=32
+date: 2024-12-12 16:18:10.014972 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=34, avg=34.00, max=32
+date: 2024-12-12 16:18:25.671250 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=38, avg=38.00, max=32
+date: 2024-12-12 16:18:38.786644 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=32, avg=32.00, max=32
+date: 2024-12-12 16:18:51.007059 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=15, avg=15.00, max=32
+date: 2024-12-12 16:19:03.524417 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=14, avg=14.00, max=32
+date: 2024-12-12 16:19:15.500125 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=25, avg=25.00, max=32
+date: 2024-12-12 16:19:27.610684 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=16, avg=16.00, max=32
+date: 2024-12-12 16:19:42.211000 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=14, avg=14.00, max=32
+date: 2024-12-12 16:19:56.596486 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=15, avg=15.00, max=32
+date: 2024-12-12 16:20:08.018222 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=23, avg=23.00, max=32
+date: 2024-12-12 16:20:19.926249 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=22, avg=22.00, max=32
+date: 2024-12-12 16:20:31.485548 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=24, avg=24.00, max=32
+date: 2024-12-12 16:20:43.296189 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=16, avg=16.00, max=32
+date: 2024-12-12 16:20:54.893903 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=23, avg=23.00, max=32
+date: 2024-12-12 16:21:06.306611 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=15, avg=15.00, max=32
+date: 2024-12-12 16:21:20.806286 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=18, avg=18.00, max=32
+date: 2024-12-12 16:21:35.315092 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=15, avg=15.00, max=32
+date: 2024-12-12 16:21:47.417332 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=25, avg=25.00, max=32
+date: 2024-12-12 16:21:59.490523 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=20, avg=20.00, max=32
+date: 2024-12-12 16:22:11.119057 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=19, avg=19.00, max=32
+date: 2024-12-12 16:22:23.494657 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=22, avg=22.00, max=32
+date: 2024-12-12 16:22:35.317733 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=21, avg=21.00, max=32
+date: 2024-12-12 16:22:50.089191 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=21, avg=21.00, max=32
+date: 2024-12-12 16:23:04.502809 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=14, avg=14.00, max=32
+date: 2024-12-12 16:23:19.413549 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=28, avg=28.00, max=32
+date: 2024-12-12 16:23:30.899483 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=21, avg=21.00, max=32
+date: 2024-12-12 16:23:42.783737 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=12, avg=12.00, max=32
+date: 2024-12-12 16:23:54.593993 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=8, avg=8.00, max=32
+date: 2024-12-12 16:24:06.707942 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=13, avg=13.00, max=32
+date: 2024-12-12 16:24:18.206204 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=20, avg=20.00, max=32
+date: 2024-12-12 16:24:33.284693 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=13, avg=13.00, max=32
+date: 2024-12-12 16:24:45.192844 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=20, avg=20.00, max=32
+date: 2024-12-12 16:24:56.873415 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=25, avg=25.00, max=32
+date: 2024-12-12 16:25:09.101401 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=16, avg=16.00, max=32
+date: 2024-12-12 16:25:21.190120 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=16, avg=16.00, max=32
+date: 2024-12-12 16:25:32.972176 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=14, avg=14.00, max=32
+date: 2024-12-12 16:25:47.980598 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=15, avg=15.00, max=32
+date: 2024-12-12 16:26:02.676261 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=16, avg=16.00, max=32
+date: 2024-12-12 16:26:14.904689 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=25, avg=25.00, max=32
+date: 2024-12-12 16:26:27.072020 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=21, avg=21.00, max=32
+date: 2024-12-12 16:26:39.002849 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=17, avg=17.00, max=32
+date: 2024-12-12 16:26:49.501224 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=17, avg=17.00, max=32
+date: 2024-12-12 16:27:01.107881 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=12, avg=12.00, max=32
+date: 2024-12-12 16:27:13.102468 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=11, avg=11.00, max=32
+date: 2024-12-12 16:27:25.786355 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=15, avg=15.00, max=32
+date: 2024-12-12 16:27:38.778388 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=13, avg=13.00, max=32
+date: 2024-12-12 16:27:51.403995 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=16, avg=16.00, max=32
+date: 2024-12-12 16:28:03.612208 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=17, avg=17.00, max=32
+date: 2024-12-12 16:28:15.086539 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=17, avg=17.00, max=32
+date: 2024-12-12 16:28:27.201464 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=14, avg=14.00, max=32
+date: 2024-12-12 16:28:39.511087 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=12, avg=12.00, max=32
+date: 2024-12-12 16:28:51.873931 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=11, avg=11.00, max=32
+date: 2024-12-12 16:29:04.005931 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=11, avg=11.00, max=32
+date: 2024-12-12 16:29:15.313709 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=11, avg=11.00, max=32
+date: 2024-12-12 16:29:30.515110 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=12, avg=12.00, max=32
+date: 2024-12-12 16:29:45.698240 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=9, avg=9.00, max=32
+date: 2024-12-12 16:29:58.812483 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=12, avg=12.00, max=32
+date: 2024-12-12 16:30:10.601301 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=13, avg=13.00, max=32
+date: 2024-12-12 16:30:22.623273 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=15, avg=15.00, max=32
+date: 2024-12-12 16:30:34.392116 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=15, avg=15.00, max=32
+date: 2024-12-12 16:30:46.102172 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=17, avg=17.00, max=32
+date: 2024-12-12 16:30:58.188549 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=12, avg=12.00, max=32
+date: 2024-12-12 16:31:12.906385 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=9, avg=9.00, max=32
+date: 2024-12-12 16:31:27.790299 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=16, avg=16.00, max=32
+date: 2024-12-12 16:31:39.908938 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=26, avg=26.00, max=32
+date: 2024-12-12 16:31:51.588237 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=26, avg=26.00, max=32
+date: 2024-12-12 16:32:03.487345 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=17, avg=17.00, max=32
+date: 2024-12-12 16:32:15.284668 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=15, avg=15.00, max=32
+date: 2024-12-12 16:32:26.714329 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=14, avg=14.00, max=32
+date: 2024-12-12 16:32:38.490348 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=15, avg=15.00, max=32
+date: 2024-12-12 16:32:53.385815 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=9, avg=9.00, max=32
+date: 2024-12-12 16:33:07.899396 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=19, avg=19.00, max=32
+date: 2024-12-12 16:33:19.587238 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=13, avg=13.00, max=32
+date: 2024-12-12 16:33:31.372669 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=13, avg=13.00, max=32
+date: 2024-12-12 16:33:43.095664 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=21, avg=21.00, max=32
+date: 2024-12-12 16:33:55.119550 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=14, avg=14.00, max=32
+date: 2024-12-12 16:34:07.275061 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=13, avg=13.00, max=32
+date: 2024-12-12 16:34:21.899295 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=13, avg=13.00, max=32
+date: 2024-12-12 16:34:36.606928 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=23, avg=23.00, max=32
+date: 2024-12-12 16:34:48.596685 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=13, avg=13.00, max=32
+date: 2024-12-12 16:34:59.713043 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=14, avg=14.00, max=32
