@@ -2,7 +2,7 @@
 cd ./data
 mkdir $1
 cd $1
-for type in 1 2 3
+for type in 1 2 3 4
 do
     mkdir type-${type}
     cd type-${type}

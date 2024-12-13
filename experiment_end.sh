@@ -5,10 +5,12 @@ kubectl scale --replicas=0 statefulset/emqx -n dtwins
 kubectl scale --replicas=0 statefulset/mqtt-quic-type-1-sub -n dtwins
 kubectl scale --replicas=0 statefulset/mqtt-quic-type-2-sub -n dtwins
 kubectl scale --replicas=0 statefulset/mqtt-quic-type-3-sub -n dtwins
+kubectl scale --replicas=0 statefulset/mqtt-quic-type-4-sub -n dtwins
 
 kubectl scale --replicas=0 statefulset/mqtt-quic-type-1-pub -n dtwins
 kubectl scale --replicas=0 statefulset/mqtt-quic-type-2-pub -n dtwins
 kubectl scale --replicas=0 statefulset/mqtt-quic-type-3-pub -n dtwins
+kubectl scale --replicas=0 statefulset/mqtt-quic-type-4-pub -n dtwins
 
 kubectl scale --replicas=0 statefulset/mqtt-tcp-sub -n dtwins
 kubectl scale --replicas=0 statefulset/mqtt-tcp-pub -n dtwins
@@ -21,7 +23,7 @@ kubectl scale --replicas=0 statefulset/cluster-manager -n dtwins
 cd ./data
 mkdir $1
 cd $1
-for type in 1 2 3
+for type in 1 2 3 4
 do
     mkdir type-${type}
     cd type-${type}
