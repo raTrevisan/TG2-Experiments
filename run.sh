@@ -28,11 +28,3 @@ sleep 3600
 sleep 30
 ./experiment_end.sh
 
-
-sleep 600
-
-./experiment_start.sh quic 50 1
-sleep 3600
-./logs.sh quic-50-1-manager -queue
-sleep 30
-./experiment_end.sh
