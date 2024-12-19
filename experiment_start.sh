@@ -32,10 +32,10 @@ if [ "$1" == "quic" ]; then
     echo "Using QUIC"
     echo "Scaling Subscribers..."
     #kubectl scale --replicas=$2 statefulset/mqtt-quic-sub -n dtwins
-    kubectl scale --replicas=$2 statefulset/mqtt-quic-type-4-sub -n dtwins
-    kubectl scale --replicas=$2 statefulset/mqtt-quic-type-1-sub -n dtwins
-    kubectl scale --replicas=$2 statefulset/mqtt-quic-type-2-sub -n dtwins
-    kubectl scale --replicas=$2 statefulset/mqtt-quic-type-3-sub -n dtwins
+    kubectl scale --replicas=$4 statefulset/mqtt-quic-type-4-sub -n dtwins
+    kubectl scale --replicas=$4 statefulset/mqtt-quic-type-1-sub -n dtwins
+    kubectl scale --replicas=$4 statefulset/mqtt-quic-type-2-sub -n dtwins
+    kubectl scale --replicas=$4 statefulset/mqtt-quic-type-3-sub -n dtwins
     sleep 60
 
     echo "Scaling Clients..."
