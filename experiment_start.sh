@@ -36,6 +36,7 @@ if [ "$1" == "quic" ]; then
     kubectl scale --replicas=$4 statefulset/mqtt-quic-type-1-sub -n dtwins
     kubectl scale --replicas=$4 statefulset/mqtt-quic-type-2-sub -n dtwins
     kubectl scale --replicas=$4 statefulset/mqtt-quic-type-3-sub -n dtwins
+    kubectl scale --replicas=$4 statefulset/mqtt-quic-type-5-sub -n dtwins
     sleep 60
 
     echo "Scaling Clients..."
@@ -44,5 +45,6 @@ if [ "$1" == "quic" ]; then
     kubectl scale --replicas=$2 statefulset/mqtt-quic-type-1-pub -n dtwins
     kubectl scale --replicas=$2 statefulset/mqtt-quic-type-2-pub -n dtwins
     kubectl scale --replicas=$2 statefulset/mqtt-quic-type-3-pub -n dtwins
+    kubectl scale --replicas=$2 statefulset/mqtt-quic-type-5-pub -n dtwins
     echo "Done"
 fi

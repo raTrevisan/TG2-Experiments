@@ -3,6 +3,7 @@ import numpy as np
 import glob
 import os
 from datetime import datetime
+import seaborn as sns
 
 def parse_log_file(filename):
     times = []
@@ -25,7 +26,7 @@ def parse_log_file(filename):
                 # Calculate latency in milliseconds
                 latency = (received_time - sent_time).total_seconds() * 1000
                 
-                # Store timestamp (as seconds since start) and latency
+                # Store timestamp and latency
                 times.append(received_time.timestamp())
                 latencies.append(latency)
                 
@@ -36,11 +37,33 @@ def parse_log_file(filename):
     return np.array(times), np.array(latencies)
 
 def create_graphs():
-    # Base directory for the logs
-    base_dir = './data/quic-40-1-manager-fix'
+    # Set style using seaborn
+    sns.set_style("whitegrid")
     
-    # Create a graph for each type
-    for type_num in [1, 2, 3]:
+    # Define colors with labels
+    type_order = [3, 4, 2, 1]  # Critical, AR, Process Auto, Industrial IoT
+    colors = ['#e74c3c', '#9b59b6', '#3498db', '#2ecc71']  # Reordered to match
+    labels = {
+        1: 'Industrial IoT',
+        2: 'Process Automation',
+        3: 'Critical',
+        4: 'Augmented Reality'
+    }
+
+    # Base directory for the logs
+    base_dir = './data/quic-worst-case'
+    
+    # Create output directory
+    output_dir = './data/graphs'
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Collect latencies and labels only for existing data
+    all_latencies = []
+    type_labels = []
+    valid_colors = []
+    
+    # Process each type in the specified order
+    for type_num in type_order:
         type_dir = f'type-{type_num}'
         type_path = os.path.join(base_dir, type_dir)
         
@@ -52,68 +75,72 @@ def create_graphs():
         
         if not log_files:
             continue
-            
-        # Create two subplots: one for timestamps, one for latencies
-        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 10))
-        
-        colors = plt.cm.rainbow(np.linspace(0, 1, len(log_files)))
-        
-        # Collect all timestamps for combined plot
-        all_times = []
-        earliest_time = float('inf')
-        
-        # First pass to find earliest timestamp
+
+        # Collect latencies from all files for this type
+        type_latencies = []
         for file in log_files:
-            times, _ = parse_log_file(file)
-            if len(times) > 0:
-                earliest_time = min(earliest_time, times[0])
-        
-        # Second pass to plot data
-        for file, color in zip(log_files, colors):
-            times, latencies = parse_log_file(file)
-            if len(times) == 0:
-                print(f"Warning: No valid data found in {file}")
-                continue
-            
-            # Convert to relative times
-            rel_times = times - earliest_time
-            all_times.extend(times)
-            
-            # Plot latencies against time
-            sub_num = file.split('-')[-1].replace('.log', '')
-            label = f'Subscriber {sub_num}'
-            ax2.plot(rel_times, latencies, '.', color=color, label=label, alpha=0.7, markersize=2)
+            _, latencies = parse_log_file(file)
+            if len(latencies) > 0:
+                type_latencies.extend(latencies)
 
-        if all_times:
-            # Sort all timestamps and create combined plot
-            all_times = np.array(sorted(all_times))
-            rel_times = all_times - earliest_time
-            
-            # Create message density plot (messages vs time)
-            ax1.plot(rel_times, np.arange(len(all_times)), 'b-', label='All Messages', alpha=0.8)
+        if type_latencies:
+            all_latencies.append(type_latencies)
+            type_labels.append(labels[type_num])
+            valid_colors.append(colors[type_order.index(type_num)])
 
-        # Customize timestamp plot
-        ax1.set_xlabel('Time (seconds)')
-        ax1.set_ylabel('Cumulative Message Count')
-        ax1.set_title(f'QUIC Message Delivery Progress - Type {type_num}')
-        ax1.grid(True, linestyle='--', alpha=0.7)
-        ax1.legend(bbox_to_anchor=(0.5, -0.15), loc='upper center', ncol=5)
+    # Create figure with white background
+    plt.figure(figsize=(10, 6), facecolor='white')
+    
+    # Create boxplot with only the valid data
+    bp = plt.boxplot(all_latencies, 
+                    labels=type_labels,
+                    showfliers=False,
+                    patch_artist=True,
+                    medianprops=dict(color="black", linewidth=1.5),
+                    boxprops=dict(alpha=0.7))
 
-        # Customize latency plot
-        ax2.set_xlabel('Time (seconds)')
-        ax2.set_ylabel('Latency (ms)')
-        ax2.set_title(f'QUIC Message Latency by Subscriber - Type {type_num}')
-        ax2.grid(True, linestyle='--', alpha=0.7)
-        ax2.legend(bbox_to_anchor=(0.5, -0.15), loc='upper center', ncol=5)
+    # Color the boxes using only valid colors
+    for box, color in zip(bp['boxes'], valid_colors):
+        box.set_facecolor(color)
+        box.set_edgecolor('black')
+        box.set_linewidth(1.5)
 
-        # Adjust layout to make room for legends
-        plt.subplots_adjust(bottom=0.15, hspace=0.35)
+    # Style the whiskers and caps
+    for whisker in bp['whiskers']:
+        whisker.set_color('black')
+        whisker.set_linewidth(1.5)
+    
+    for cap in bp['caps']:
+        cap.set_color('black')
+        cap.set_linewidth(1.5)
 
-        # Save the plot
-        output_dir = './data/graphs'
-        os.makedirs(output_dir, exist_ok=True)
-        plt.savefig(os.path.join(output_dir, f'quic_40_clients_type_{type_num}_analysis.png'))
-        plt.close()
+    # Customize the plot
+    plt.ylabel('Latency (ms)', fontsize=12, fontweight='bold')
+    plt.xlabel('Message Type', fontsize=12, fontweight='bold')
+    plt.title('Message Latency Distribution by Type (Worst Case)', fontsize=14, fontweight='bold', pad=20)
+    
+    # Customize grid
+    plt.grid(True, linestyle='--', alpha=0.3)
+    
+    # Add some padding to y-axis
+    plt.margins(y=0.1)
+    
+    # Customize ticks
+    plt.xticks(fontsize=10, fontweight='bold')
+    plt.yticks(fontsize=10)
+    
+    # Set y-axis limit
+    plt.ylim(0, 1500)
+    
+    # Customize grid with appropriate steps
+    plt.yticks(np.arange(0, 1501, 100))  # Create ticks every 100ms up to 1500
+    
+    # Save the plot with tight layout and high DPI
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, 'quic_worst_case_latency_boxplot.png'), 
+                dpi=300, 
+                bbox_inches='tight')
+    plt.close()
 
 if __name__ == "__main__":
     create_graphs()

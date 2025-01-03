@@ -3,6 +3,7 @@ import numpy as np
 import glob
 import os
 from datetime import datetime
+import seaborn as sns
 
 def parse_log_file(filename):
     latencies = []
@@ -31,12 +32,42 @@ def parse_log_file(filename):
     
     return np.array(latencies)
 
-def create_histograms():
-    # Base directory for the logs
-    base_dir = './data/quic-40-1-manager-fix'
+def create_histogram():
+    # Update the style setting
+    sns.set_style("whitegrid")
     
-    # Create a histogram for each type
-    for type_num in [1, 2, 3]:
+    # Base directory for the logs
+    base_dir = './data/quic-worst-case'
+    
+    # Create output directory
+    output_dir = './data/graphs'
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Set fixed x-axis limits and bins
+    x_min = 0
+    x_max = 500
+    n_bins = 50  # Fixed number of bins
+    bin_edges = np.linspace(x_min, x_max, n_bins + 1)  # Create fixed bin edges
+    grid_step = 50
+    grid_lines = np.arange(x_min, x_max + grid_step, grid_step)
+    
+    # Define colors and labels
+    colors = {
+        1: '#2ecc71',  # Industrial IoT = Green
+        2: '#3498db',  # Process Automation = Blue
+        3: '#e74c3c',  # Critical = Red
+        4: '#9b59b6',  # Augmented Reality = Purple
+    }
+
+    labels = {
+        1: 'Industrial IoT',
+        2: 'Process Automation',
+        3: 'Critical',
+        4: 'Augmented Reality'
+    }
+
+    # Process each type
+    for type_num in [1, 2, 3, 4]:
         type_dir = f'type-{type_num}'
         type_path = os.path.join(base_dir, type_dir)
         
@@ -48,61 +79,101 @@ def create_histograms():
         
         if not log_files:
             continue
-            
-        # Create figure
-        plt.figure(figsize=(12, 6))
-        
-        # Collect all latencies
+
+        # Collect latencies from all files
         all_latencies = []
-        
         for file in log_files:
             latencies = parse_log_file(file)
-            all_latencies.extend(latencies)
+            if len(latencies) > 0:
+                all_latencies.extend(latencies)
 
-        if all_latencies:
-            all_latencies = np.array(all_latencies)
-            
-            # Create histogram
-            plt.hist(all_latencies, bins=50, alpha=0.7, color='blue', edgecolor='black')
-            
-            # Calculate statistics
-            mean_latency = np.mean(all_latencies)
-            median_latency = np.median(all_latencies)
-            p95_latency = np.percentile(all_latencies, 95)
-            p99_latency = np.percentile(all_latencies, 99)
-            
-            # Add vertical lines for statistics
-            plt.axvline(mean_latency, color='red', linestyle='dashed', linewidth=2, label=f'Mean: {mean_latency:.2f}ms')
-            plt.axvline(median_latency, color='green', linestyle='dashed', linewidth=2, label=f'Median: {median_latency:.2f}ms')
-            plt.axvline(p95_latency, color='orange', linestyle='dashed', linewidth=2, label=f'95th: {p95_latency:.2f}ms')
-            plt.axvline(p99_latency, color='purple', linestyle='dashed', linewidth=2, label=f'99th: {p99_latency:.2f}ms')
-            
-            # Add 50ms threshold line and percentage for type 3
-            if type_num == 3:
-                plt.axvline(50, color='black', linestyle='dotted', linewidth=2, label='50ms threshold')
-                under_50ms = all_latencies[all_latencies <= 50]
-                percent_under_50 = (len(under_50ms) / len(all_latencies)) * 100
-                plt.text(0.98, 0.95, f'{percent_under_50:.1f}% ≤ 50ms', 
-                        transform=plt.gca().transAxes, 
-                        horizontalalignment='right',
-                        verticalalignment='top',
-                        bbox=dict(facecolor='white', alpha=0.8))
+        if not all_latencies:
+            continue
 
-        # Customize plot
-        plt.xlabel('Latency (ms)')
-        plt.ylabel('Frequency')
-        plt.title(f'QUIC Message Latency Distribution - Type {type_num}')
-        plt.grid(True, linestyle='--', alpha=0.7)
-        plt.legend(bbox_to_anchor=(0.5, -0.15), loc='upper center', ncol=5 if type_num == 3 else 4)
-
-        # Adjust layout
-        plt.subplots_adjust(bottom=0.2)
-
-        # Save the plot
-        output_dir = './data/graphs'
-        os.makedirs(output_dir, exist_ok=True)
-        plt.savefig(os.path.join(output_dir, f'quic_40_clients_type_{type_num}_histogram.png'))
+        all_latencies = np.array(all_latencies)
+        
+        # Create figure with two subplots sharing x-axis
+        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 8), height_ratios=[1, 3], 
+                                      sharex=True, facecolor='white')
+        
+        # Set the same x-axis grid for both plots
+        grid_alpha = 0.3
+        grid_color = 'gray'
+        grid_linestyle = '--'
+        
+        # Plot boxplot on top
+        color = colors[type_num]
+        bp = ax1.boxplot(all_latencies, 
+                        vert=False,      
+                        patch_artist=True,
+                        medianprops=dict(color="black", linewidth=1.5),
+                        boxprops=dict(facecolor=color, alpha=0.7, 
+                                    edgecolor='black', linewidth=1.5),
+                        flierprops=dict(marker='.',          # Circle marker style
+                                      markerfacecolor='none', # Transparent fill
+                                      markeredgecolor='red',  # Red edge color
+                                      markersize=4,          # Marker size
+                                      alpha=0.1,             # Very transparent
+                                      linewidth=1))          # Edge thickness
+        
+        # Style the whiskers and caps
+        for whisker in bp['whiskers']:
+            whisker.set_color('black')
+            whisker.set_linewidth(1.5)
+        for cap in bp['caps']:
+            cap.set_color('black')
+            cap.set_linewidth(1.5)
+        
+        ax1.set_yticks([])  # Hide y-axis ticks for boxplot
+        
+        # Plot histogram below
+        n, bins, patches = ax2.hist(all_latencies, bins=bin_edges, color=color, alpha=0.7, 
+                                  edgecolor='black', linewidth=1)
+        
+        # Add mean and median lines to both plots
+        mean_latency = np.mean(all_latencies)
+        median_latency = np.median(all_latencies)
+        for ax in [ax1, ax2]:
+            ax.axvline(mean_latency, color='red', linestyle='dashed', linewidth=2)
+            ax.axvline(median_latency, color='green', linestyle='dashed', linewidth=2)
+            
+            # Update both axes to use fixed limits
+            ax.set_xlim(x_min, x_max)
+            ax.set_xticks(grid_lines)
+            ax.grid(True, linestyle=grid_linestyle, alpha=grid_alpha, color=grid_color)
+        
+        # Add legend to boxplot
+        mean_line = ax1.axvline(mean_latency, color='red', linestyle='dashed', linewidth=2, 
+                              label=f'Mean: {mean_latency:.2f}ms')
+        median_line = ax1.axvline(median_latency, color='green', linestyle='dashed', linewidth=2, 
+                                label=f'Median: {median_latency:.2f}ms')
+        ax1.legend(loc='upper right')
+        
+        # Set labels and title
+        ax2.set_xlabel('Latency (ms)', fontsize=12, fontweight='bold')
+        ax2.set_ylabel('Frequency', fontsize=12, fontweight='bold')
+        fig.suptitle(f'Latency Distribution - {labels[type_num]}', 
+                    fontsize=14, fontweight='bold', y=0.95)
+        
+        # Add statistics text box
+        stats_text = f'n: {len(all_latencies)}\n'
+        stats_text += f'Mean: {mean_latency:.2f}ms\n'
+        stats_text += f'Median: {median_latency:.2f}ms\n'
+        stats_text += f'Std Dev: {np.std(all_latencies):.2f}ms'
+        
+        ax2.text(0.95, 0.95, stats_text,
+                transform=ax2.transAxes,
+                bbox=dict(facecolor='white', alpha=0.8, edgecolor='none'),
+                verticalalignment='top',
+                horizontalalignment='right')
+        
+        # Adjust spacing between plots
+        plt.subplots_adjust(hspace=0)  # Remove space between plots
+        
+        # Save the figure
+        plt.savefig(os.path.join(output_dir, f'quic_best_case_{type_num}_distribution.png'), 
+                   dpi=300, bbox_inches='tight')
         plt.close()
 
 if __name__ == "__main__":
-    create_histograms()
+    create_histogram()
