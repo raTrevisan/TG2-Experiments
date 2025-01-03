@@ -1,0 +1,317 @@
+starting up version 1.0
+starting with cluster address: emqx.dtwins:18083
+cluster user set to: my-app and cluster password set to: AAA4A275-BEEC-4AF8-B70B-DAAC0341F8EB
+kubernetes api address set to: 143.54.85.77:6443
+max queue set to: 1000 and max inflight set to: 32
+Warning: Received empty or invalid response - metrics: False, nodes: True
+No scaling for 1 iterations
+Warning: Received empty or invalid response - metrics: False, nodes: True
+No scaling for 2 iterations
+Warning: Received empty or invalid response - metrics: False, nodes: True
+No scaling for 3 iterations
+Warning: Received empty or invalid response - metrics: False, nodes: True
+No scaling for 4 iterations
+Warning: Received empty or invalid response - metrics: False, nodes: True
+No scaling for 5 iterations
+Warning: Received empty or invalid response - metrics: False, nodes: True
+No scaling for 6 iterations
+Warning: Received empty or invalid response - metrics: False, nodes: True
+No scaling for 7 iterations
+Warning: Received empty or invalid response - metrics: False, nodes: True
+No scaling for 8 iterations
+Warning: Received empty or invalid response - metrics: False, nodes: True
+No scaling for 9 iterations
+Warning: Received empty or invalid response - metrics: False, nodes: True
+No scaling for 10 iterations
+Minimum Cluster Size
+Warning: Metrics have no next page
+date: 2025-01-03 00:00:51.878993 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=1, avg=1.00, max=32
+No scaling for 1 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:01:01.920703 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=1, avg=1.00, max=32
+No scaling for 2 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:01:11.955516 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=4, avg=4.00, max=32
+No scaling for 3 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:01:21.981753 |Cluster size: 1 |Queue: total=283, avg=283.00, max=1000 | Inflight: total=32, avg=32.00, max=32
+No scaling for 4 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:01:32.025182 |Cluster size: 1 |Queue: total=283, avg=283.00, max=1000 | Inflight: total=32, avg=32.00, max=32
+No scaling for 5 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:01:42.057892 |Cluster size: 1 |Queue: total=258, avg=258.00, max=1000 | Inflight: total=32, avg=32.00, max=32
+No scaling for 6 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:01:52.080265 |Cluster size: 1 |Queue: total=242, avg=242.00, max=1000 | Inflight: total=32, avg=32.00, max=32
+No scaling for 7 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:02:02.126898 |Cluster size: 1 |Queue: total=242, avg=242.00, max=1000 | Inflight: total=32, avg=32.00, max=32
+No scaling for 8 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:02:12.155457 |Cluster size: 1 |Queue: total=341, avg=341.00, max=1000 | Inflight: total=32, avg=32.00, max=32
+No scaling for 9 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:02:22.174711 |Cluster size: 1 |Queue: total=960, avg=960.00, max=1000 | Inflight: total=32, avg=32.00, max=32
+No scaling for 10 iterations
+Minimum Cluster Size
+Warning: Metrics have no next page
+date: 2025-01-03 00:02:42.225554 |Cluster size: 1 |Queue: total=263, avg=263.00, max=1000 | Inflight: total=32, avg=32.00, max=32
+No scaling for 1 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:02:52.261015 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=15, avg=15.00, max=32
+No scaling for 2 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:03:02.278729 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=15, avg=15.00, max=32
+No scaling for 3 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:03:12.302594 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 4 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:03:22.325265 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 5 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:03:32.348882 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 6 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:03:42.377440 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 7 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:03:52.400644 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 8 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:04:02.424232 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 9 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:04:12.448606 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 10 iterations
+Minimum Cluster Size
+Warning: Metrics have no next page
+date: 2025-01-03 00:04:32.506613 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 1 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:04:42.531080 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 2 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:04:52.555335 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 3 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:05:02.580016 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 4 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:05:12.606102 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 5 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:05:22.630338 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 6 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:05:32.655455 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 7 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:05:42.679481 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 8 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:05:52.703432 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 9 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:06:02.728097 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 10 iterations
+Minimum Cluster Size
+Warning: Metrics have no next page
+date: 2025-01-03 00:06:22.780960 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 1 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:06:32.802103 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 2 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:06:42.826033 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 3 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:06:52.850840 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 4 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:07:02.874046 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 5 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:07:12.898164 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 6 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:07:22.923248 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 7 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:07:32.947473 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 8 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:07:42.972610 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 9 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:07:52.995943 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 10 iterations
+Minimum Cluster Size
+Warning: Metrics have no next page
+date: 2025-01-03 00:08:13.046970 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 1 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:08:23.071141 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 2 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:08:33.095792 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 3 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:08:43.120983 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 4 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:08:53.146740 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 5 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:09:03.169304 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 6 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:09:13.195944 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 7 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:09:23.218668 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 8 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:09:33.241945 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 9 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:09:43.266424 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 10 iterations
+Minimum Cluster Size
+Warning: Metrics have no next page
+date: 2025-01-03 00:10:03.319780 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 1 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:10:13.344510 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 2 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:10:23.369726 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 3 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:10:33.394862 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 4 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:10:43.418600 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 5 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:10:53.439998 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 6 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:11:03.463678 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 7 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:11:13.487513 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 8 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:11:23.511035 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 9 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:11:33.536457 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 10 iterations
+Minimum Cluster Size
+Warning: Metrics have no next page
+date: 2025-01-03 00:11:53.587856 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 1 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:12:03.611598 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 2 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:12:13.637528 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 3 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:12:23.662515 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 4 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:12:33.686927 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 5 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:12:43.711858 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 6 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:12:53.732506 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 7 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:13:03.756731 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 8 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:13:13.779943 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 9 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:13:23.804193 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 10 iterations
+Minimum Cluster Size
+Warning: Metrics have no next page
+date: 2025-01-03 00:13:43.857806 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 1 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:13:53.882233 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 2 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:14:03.904738 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 3 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:14:13.928722 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 4 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:14:23.954510 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 5 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:14:33.979971 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 6 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:14:44.003202 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 7 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:14:54.027695 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 8 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:15:04.051054 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 9 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:15:14.080515 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 10 iterations
+Minimum Cluster Size
+Warning: Metrics have no next page
+date: 2025-01-03 00:15:34.132892 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 1 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:15:44.157964 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 2 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:15:54.182193 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 3 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:16:04.206876 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 4 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:16:14.231099 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 5 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:16:24.259690 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 6 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:16:34.277226 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 7 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:16:44.303781 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 8 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:16:54.327167 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 9 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:17:04.350450 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 10 iterations
+Minimum Cluster Size
+Warning: Metrics have no next page
+date: 2025-01-03 00:17:24.402581 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 1 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:17:34.430999 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 2 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:17:44.452968 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 3 iterations
+Warning: Metrics have no next page
+date: 2025-01-03 00:17:54.474481 |Cluster size: 1 |Queue: total=0, avg=0.00, max=1000 | Inflight: total=0, avg=0.00, max=32
+No scaling for 4 iterations
