@@ -4,6 +4,7 @@ import glob
 import os
 from datetime import datetime
 import seaborn as sns
+from tqdm import tqdm
 
 def parse_log_file(filename):
     latencies = []
@@ -14,166 +15,217 @@ def parse_log_file(filename):
                 continue
                 
             try:
-                # Extract received and sent timestamps
-                received_str = line.split(' at ')[1].split(' sent ')[0]
-                sent_str = line.split(' sent ')[1].strip()
+                # Split the line by 'at' and 'sent' to get the timestamps
+                parts = line.split(' at ')
+                if len(parts) != 2:
+                    continue
+                    
+                # Get the topic part
+                topic_part = parts[0].split('topic: ')[1].split(' with')[0]  # e.g., 'type-2/0'
+                message_type = int(topic_part.split('-')[1].split('/')[0])  # Get the type number (2)
                 
-                # Convert strings to datetime objects
-                received_time = datetime.strptime(received_str, '%Y-%m-%d %H:%M:%S.%f')
-                sent_time = datetime.strptime(sent_str, '%Y-%m-%d %H:%M:%S.%f')
+                # Get timestamps
+                timestamp_parts = parts[1].split(' sent ')
+                received_str = timestamp_parts[0]
+                sent_str = timestamp_parts[1].strip()
+                
+                # Try parsing with microseconds first, then without if it fails
+                try:
+                    received_time = datetime.strptime(received_str, '%Y-%m-%d %H:%M:%S.%f')
+                except ValueError:
+                    # If no microseconds, add .000000
+                    received_time = datetime.strptime(received_str + '.000000', '%Y-%m-%d %H:%M:%S.%f')
+                
+                try:
+                    sent_time = datetime.strptime(sent_str, '%Y-%m-%d %H:%M:%S.%f')
+                except ValueError:
+                    # If no microseconds, add .000000
+                    sent_time = datetime.strptime(sent_str + '.000000', '%Y-%m-%d %H:%M:%S.%f')
                 
                 # Calculate latency in milliseconds
                 latency = (received_time - sent_time).total_seconds() * 1000
-                latencies.append(latency)
-                
-            except (ValueError, IndexError) as e:
-                print(f"Warning: Could not parse line in {filename}: {line.strip()}")
-                continue
-    
-    return np.array(latencies)
+                latencies.append((message_type, latency))  # Store tuple of (type, latency)
 
-def create_histogram():
-    # Update the style setting
+            except Exception as e:
+                print(f"Warning: Could not parse line in {filename}")
+                print(f"Line: {line.strip()}")
+                print(f"Error: {str(e)}")
+                continue
+                
+    return latencies
+
+def calculate_statistics(latencies):
+    """Calculate various statistics for the latencies."""
+    if not latencies:
+        return None
+    
+    stats = {
+        'count': len(latencies),
+        'mean': np.mean(latencies),
+        'median': np.median(latencies),
+        'std': np.std(latencies),
+        'min': np.min(latencies),
+        'max': np.max(latencies),
+        'p95': np.percentile(latencies, 95),
+        'p99': np.percentile(latencies, 99)
+    }
+    return stats
+
+def plot_histogram_with_stats(data, bins, color, label, ax, is_critical=False):
+    """Plot histogram with statistical markers."""
+    stats = calculate_statistics(data)
+    if not stats:
+        return None
+    
+    # Plot the histogram with weights to scale the y-axis and fixed number of bins
+    weights = np.ones_like(data) * (100.0/len(data))  # This will make the total area = 100
+    n, bins, patches = ax.hist(data, bins=50, color=color, alpha=0.7,  # Fixed 50 bins
+                              weights=weights,
+                              label=label,
+                              edgecolor='black', linewidth=1)
+    
+    # Set y-axis limit to 50%
+    ax.set_ylim(0, 50)
+    
+    # Line style based on whether it's critical messages
+    line_style = '-' if is_critical else '--'
+    
+    # Add vertical lines for statistics with Portuguese labels
+    ax.axvline(stats['mean'], color='red', linestyle=line_style, alpha=0.8, 
+               label=f"Média: {stats['mean']:.2f}ms")
+    ax.axvline(stats['median'], color='green', linestyle=line_style, alpha=0.8, 
+               label=f"Mediana: {stats['median']:.2f}ms")
+    ax.axvline(stats['p95'], color='purple', linestyle=line_style, alpha=0.8, 
+               label=f"Percentil 95: {stats['p95']:.2f}ms")
+    ax.axvline(stats['p99'], color='orange', linestyle=line_style, alpha=0.8, 
+               label=f"Percentil 99: {stats['p99']:.2f}ms")
+    
+    # Add 50ms threshold line for all histograms
+    ax.axvline(50, color='black', linestyle=':', alpha=0.8, linewidth=2,
+               label="Limite Crítico: 50ms")
+    
+    # Update y-axis label to reflect percentage
+    ax.set_ylabel('Frequência (%)', fontsize=12, fontweight='bold')
+    
+    return stats
+
+def create_histograms():
     sns.set_style("whitegrid")
-    
-    # Base directory for the logs
-    base_dir = './data/quic-worst-case'
-    
-    # Create output directory
-    output_dir = './data/graphs'
+    base_dir = './data/quic-manager-16-inflight'
+    output_dir = './data/graphs/16i'
     os.makedirs(output_dir, exist_ok=True)
 
-    # Set fixed x-axis limits and bins
     x_min = 0
     x_max = 500
-    n_bins = 50  # Fixed number of bins
-    bin_edges = np.linspace(x_min, x_max, n_bins + 1)  # Create fixed bin edges
-    grid_step = 50
-    grid_lines = np.arange(x_min, x_max + grid_step, grid_step)
+    n_bins = 50
+    bin_edges = np.linspace(x_min, x_max, n_bins + 1)
     
-    # Define colors and labels
-    colors = {
-        1: '#2ecc71',  # Industrial IoT = Green
-        2: '#3498db',  # Process Automation = Blue
-        3: '#e74c3c',  # Critical = Red
-        4: '#9b59b6',  # Augmented Reality = Purple
+    colors = ['#e74c3c', '#9b59b6', '#3498db', '#2ecc71', '#f1c40f']
+    labels = {
+        1: 'IoT Industrial',
+        2: 'Automação de Processos',
+        3: 'Mensagens Críticas',
+        4: 'Realidade Aumentada',
+        5: 'Dados de Câmeras'
     }
 
-    labels = {
-        1: 'Industrial IoT',
-        2: 'Process Automation',
-        3: 'Critical',
-        4: 'Augmented Reality'
-    }
+    all_latencies = {1: [], 2: [], 3: [], 4: [], 5: []}
+    all_stats = {}
 
     # Process each type
-    for type_num in [1, 2, 3, 4]:
+    for type_num in range(1, 6):
         type_dir = f'type-{type_num}'
         type_path = os.path.join(base_dir, type_dir)
         
         if not os.path.exists(type_path):
+            print(f"Warning: Directory {type_path} does not exist.")
             continue
             
-        log_files = glob.glob(os.path.join(type_path, f'mqtt-quic-{type_dir}-sub-*.log'))
-        log_files.sort()
-        
-        if not log_files:
-            continue
-
-        # Collect latencies from all files
-        all_latencies = []
-        for file in log_files:
-            latencies = parse_log_file(file)
-            if len(latencies) > 0:
-                all_latencies.extend(latencies)
-
-        if not all_latencies:
-            continue
-
-        all_latencies = np.array(all_latencies)
-        
-        # Create figure with two subplots sharing x-axis
-        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 8), height_ratios=[1, 3], 
-                                      sharex=True, facecolor='white')
-        
-        # Set the same x-axis grid for both plots
-        grid_alpha = 0.3
-        grid_color = 'gray'
-        grid_linestyle = '--'
-        
-        # Plot boxplot on top
-        color = colors[type_num]
-        bp = ax1.boxplot(all_latencies, 
-                        vert=False,      
-                        patch_artist=True,
-                        medianprops=dict(color="black", linewidth=1.5),
-                        boxprops=dict(facecolor=color, alpha=0.7, 
-                                    edgecolor='black', linewidth=1.5),
-                        flierprops=dict(marker='.',          # Circle marker style
-                                      markerfacecolor='none', # Transparent fill
-                                      markeredgecolor='red',  # Red edge color
-                                      markersize=4,          # Marker size
-                                      alpha=0.1,             # Very transparent
-                                      linewidth=1))          # Edge thickness
-        
-        # Style the whiskers and caps
-        for whisker in bp['whiskers']:
-            whisker.set_color('black')
-            whisker.set_linewidth(1.5)
-        for cap in bp['caps']:
-            cap.set_color('black')
-            cap.set_linewidth(1.5)
-        
-        ax1.set_yticks([])  # Hide y-axis ticks for boxplot
-        
-        # Plot histogram below
-        n, bins, patches = ax2.hist(all_latencies, bins=bin_edges, color=color, alpha=0.7, 
-                                  edgecolor='black', linewidth=1)
-        
-        # Add mean and median lines to both plots
-        mean_latency = np.mean(all_latencies)
-        median_latency = np.median(all_latencies)
-        for ax in [ax1, ax2]:
-            ax.axvline(mean_latency, color='red', linestyle='dashed', linewidth=2)
-            ax.axvline(median_latency, color='green', linestyle='dashed', linewidth=2)
+        for sub_num in range(3):
+            log_file_pattern = os.path.join(type_path, f'mqtt-quic-{type_dir}-sub-{sub_num}.log')
+            log_files = glob.glob(log_file_pattern)
             
-            # Update both axes to use fixed limits
-            ax.set_xlim(x_min, x_max)
-            ax.set_xticks(grid_lines)
-            ax.grid(True, linestyle=grid_linestyle, alpha=grid_alpha, color=grid_color)
-        
-        # Add legend to boxplot
-        mean_line = ax1.axvline(mean_latency, color='red', linestyle='dashed', linewidth=2, 
-                              label=f'Mean: {mean_latency:.2f}ms')
-        median_line = ax1.axvline(median_latency, color='green', linestyle='dashed', linewidth=2, 
-                                label=f'Median: {median_latency:.2f}ms')
-        ax1.legend(loc='upper right')
-        
-        # Set labels and title
-        ax2.set_xlabel('Latency (ms)', fontsize=12, fontweight='bold')
-        ax2.set_ylabel('Frequency', fontsize=12, fontweight='bold')
-        fig.suptitle(f'Latency Distribution - {labels[type_num]}', 
-                    fontsize=14, fontweight='bold', y=0.95)
-        
-        # Add statistics text box
-        stats_text = f'n: {len(all_latencies)}\n'
-        stats_text += f'Mean: {mean_latency:.2f}ms\n'
-        stats_text += f'Median: {median_latency:.2f}ms\n'
-        stats_text += f'Std Dev: {np.std(all_latencies):.2f}ms'
-        
-        ax2.text(0.95, 0.95, stats_text,
-                transform=ax2.transAxes,
-                bbox=dict(facecolor='white', alpha=0.8, edgecolor='none'),
-                verticalalignment='top',
-                horizontalalignment='right')
-        
-        # Adjust spacing between plots
-        plt.subplots_adjust(hspace=0)  # Remove space between plots
-        
-        # Save the figure
-        plt.savefig(os.path.join(output_dir, f'quic_best_case_{type_num}_distribution.png'), 
-                   dpi=300, bbox_inches='tight')
-        plt.close()
+            for file in tqdm(log_files, desc=f'Processing {labels[type_num]} sub-{sub_num}', unit='file'):
+                latencies = parse_log_file(file)
+                for message_type, latency in latencies:
+                    if message_type in all_latencies:
+                        all_latencies[message_type].append(latency)
+
+        # Create individual histograms for each type
+        if all_latencies[type_num]:
+            fig, ax = plt.subplots(figsize=(12, 7))
+            
+            # Create the label based on the type
+            if type_num == 3:
+                type_label = 'Mensagens Críticas'
+            else:
+                type_label = f'Tipo {type_num}'
+            
+            # Plot histogram with statistics using fixed bins
+            stats = plot_histogram_with_stats(all_latencies[type_num], 
+                                           bins=50,
+                                           color='#3498db', 
+                                           label=type_label,
+                                           ax=ax,
+                                           is_critical=(type_num == 3))
+            
+            plt.xlabel('Latência (ms)', fontsize=12, fontweight='bold')
+            plt.title(f'Distribuição de Latência - {labels[type_num]}', 
+                     fontsize=14, fontweight='bold')
+            plt.legend(title='Estatísticas', bbox_to_anchor=(1.05, 1), loc='upper left')
+            plt.grid(True, alpha=0.3)
+            plt.tight_layout()
+            
+            # Save the plot
+            plt.savefig(os.path.join(output_dir, f'quic_latency_distribution_type_{type_num}.png'), 
+                       dpi=300, bbox_inches='tight')
+            plt.close()
+
+    # Create combined histogram comparing Type 3 vs Others
+    fig, ax = plt.subplots(figsize=(12, 7))
+    
+    # Combine latencies for types 1, 2, 4, and 5
+    other_types_latencies = []
+    for type_num in [1, 2, 4, 5]:
+        other_types_latencies.extend(all_latencies[type_num])
+    
+    # Plot Type 3 and combined others
+    stats_others = None
+    stats_type3 = None
+    
+    if other_types_latencies:
+        stats_others = plot_histogram_with_stats(other_types_latencies, bin_edges, 
+                                               '#a8a8a8', 'Outros Tipos', ax, 
+                                               is_critical=False)
+    if all_latencies[3]:
+        stats_type3 = plot_histogram_with_stats(all_latencies[3], bin_edges, 
+                                              '#e31a1c', 'Mensagens Críticas', ax, 
+                                              is_critical=True)
+
+    plt.xlabel('Latência (ms)', fontsize=12, fontweight='bold')
+    plt.ylabel('Frequência', fontsize=12, fontweight='bold')
+    plt.title('Distribuição de Latência - Mensagens Críticas vs Outros (Inflight 16)', fontsize=14, fontweight='bold')
+    plt.legend(title='Tipos de Mensagem', bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, 'quic_latency_distribution_combined_comparison.png'), 
+                dpi=300, bbox_inches='tight')
+    plt.close()
+
+    # Print comparison statistics with Portuguese headers
+    print("\nEstatísticas de Comparação (em milissegundos):")
+    print("=" * 80)
+    print(f"{'Tipo':<15} {'Total':<10} {'Média':<10} {'Mediana':<10} {'DesvPad':<10} {'Mín':<10} {'Máx':<10} {'Perc.95':<10} {'Perc.99':<10}")
+    print("-" * 80)
+    if stats_type3:
+        print(f"{'Mens.Críticas':<15} {stats_type3['count']:<10.0f} {stats_type3['mean']:<10.2f} {stats_type3['median']:<10.2f} "
+              f"{stats_type3['std']:<10.2f} {stats_type3['min']:<10.2f} {stats_type3['max']:<10.2f} {stats_type3['p95']:<10.2f} "
+              f"{stats_type3['p99']:<10.2f}")
+    if stats_others:
+        print(f"{'Outros Tipos':<15} {stats_others['count']:<10.0f} {stats_others['mean']:<10.2f} {stats_others['median']:<10.2f} "
+              f"{stats_others['std']:<10.2f} {stats_others['min']:<10.2f} {stats_others['max']:<10.2f} {stats_others['p95']:<10.2f} "
+              f"{stats_others['p99']:<10.2f}")
+    print("=" * 80)
 
 if __name__ == "__main__":
-    create_histogram()
+    create_histograms()

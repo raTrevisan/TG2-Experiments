@@ -4,6 +4,7 @@ import glob
 import os
 from datetime import datetime
 import seaborn as sns
+from tqdm import tqdm  # Import tqdm for progress meter
 
 def parse_log_file(filename):
     times = []
@@ -41,17 +42,18 @@ def create_graphs():
     sns.set_style("whitegrid")
     
     # Define colors with labels
-    type_order = [3, 4, 2, 1]  # Critical, AR, Process Auto, Industrial IoT
-    colors = ['#e74c3c', '#9b59b6', '#3498db', '#2ecc71']  # Reordered to match
+    type_order = [3, 4, 2, 1, 5]  # Critical, AR, Process Auto, Industrial IoT
+    colors = ['#e74c3c', '#9b59b6', '#3498db', '#2ecc71', '#f1c40f']  # Added fifth color
     labels = {
-        1: 'Industrial IoT',
-        2: 'Process Automation',
-        3: 'Critical',
-        4: 'Augmented Reality'
+        1: 'IoT Industrial',
+        2: 'Automação de Processos',
+        3: 'Mensagens Cíticas',
+        4: 'Realidade Aumentada',
+        5: 'Dados de Câmeras'
     }
 
     # Base directory for the logs
-    base_dir = './data/quic-worst-case'
+    base_dir = './data/quic-manager-5000-queue'
     
     # Create output directory
     output_dir = './data/graphs'
@@ -78,7 +80,9 @@ def create_graphs():
 
         # Collect latencies from all files for this type
         type_latencies = []
-        for file in log_files:
+        
+        # Add progress meter for log file processing
+        for file in tqdm(log_files, desc=f'Processing type {type_num}', unit='file'):
             _, latencies = parse_log_file(file)
             if len(latencies) > 0:
                 type_latencies.extend(latencies)
@@ -115,9 +119,9 @@ def create_graphs():
         cap.set_linewidth(1.5)
 
     # Customize the plot
-    plt.ylabel('Latency (ms)', fontsize=12, fontweight='bold')
-    plt.xlabel('Message Type', fontsize=12, fontweight='bold')
-    plt.title('Message Latency Distribution by Type (Worst Case)', fontsize=14, fontweight='bold', pad=20)
+    plt.ylabel('Latencia (ms)', fontsize=12, fontweight='bold')
+    plt.xlabel('Tipo de Serviço', fontsize=12, fontweight='bold')
+    plt.title('Escalando com fila em 5000', fontsize=14, fontweight='bold', pad=20)
     
     # Customize grid
     plt.grid(True, linestyle='--', alpha=0.3)
@@ -130,14 +134,14 @@ def create_graphs():
     plt.yticks(fontsize=10)
     
     # Set y-axis limit
-    plt.ylim(0, 1500)
+    plt.ylim(0, 500)
     
     # Customize grid with appropriate steps
-    plt.yticks(np.arange(0, 1501, 100))  # Create ticks every 100ms up to 1500
+    plt.yticks(np.arange(0, 501, 100))  # Create ticks every 100ms up to 1500
     
     # Save the plot with tight layout and high DPI
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, 'quic_worst_case_latency_boxplot.png'), 
+    plt.savefig(os.path.join(output_dir, 'quic_5000q_boxplot.png'), 
                 dpi=300, 
                 bbox_inches='tight')
     plt.close()
